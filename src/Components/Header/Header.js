@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import mainLogo from "img/logo.PNG";
-import HeaderLink from "Components/Header/HeaderLink";
+// import HeaderLink from "Components/Header/HeaderLink";
 import "CSS/fonts.css";
 
 const NavBar = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
   height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
+  z-index: 10;
 `;
 
 const NavBarHeader = styled.div`
@@ -42,7 +42,8 @@ const MainLogo = styled.img`
 const Title = styled.div`
   color: #388285;
   font-size: 35px;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 700;
   margin-left: 13px;
 `;
 
@@ -67,9 +68,10 @@ const NavBarBottom = styled.div`
   font-size: 18px;
   display: flex;
   justify-content: center;
+  background-color: white;
 `;
 
-const NavBar__Nav = styled.ul`
+const NavBarNav = styled.ul`
   width: 35vw;
   display: flex;
   align-items: center;
@@ -81,7 +83,7 @@ const Item = styled.li`
   position: relative;
 `;
 
-const M_SLink = styled(Link)`
+const MSLink = styled(Link)`
   &:hover {
     color: #388285;
   }
@@ -100,29 +102,29 @@ const HeaderComponent = () => (
       </LoginAndJoin>
     </NavBarHeader>
     <NavBarBottom>
-      <NavBar__Nav className="font">
+      <NavBarNav className="font">
         <Item>
-          <M_SLink to="/">
+          <MSLink to="/">
             <div>교육 소개</div>
-          </M_SLink>
-          <HeaderLink />
+          </MSLink>
+          {/* <HeaderLink />   이거 메뉴!!!!!!!!!!*/}
         </Item>
         <Item>
-          <M_SLink to="/">
+          <MSLink to="/">
             <div>교육 후기</div>
-          </M_SLink>
+          </MSLink>
         </Item>
         <Item>
-          <M_SLink to="/">
+          <MSLink to="/">
             <div>기업 소개</div>
-          </M_SLink>
+          </MSLink>
         </Item>
         <Item>
-          <M_SLink to="/">
+          <MSLink to="/">
             <div>교육 신청/문의</div>
-          </M_SLink>
+          </MSLink>
         </Item>
-      </NavBar__Nav>
+      </NavBarNav>
     </NavBarBottom>
   </NavBar>
 );

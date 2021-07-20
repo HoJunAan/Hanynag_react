@@ -33,7 +33,7 @@ const Item = styled.li`
   }
 `;
 
-const M_SLink = styled(Link)`
+const MsLink = styled(Link)`
   height: 100%;
   display: flex;
   align-items: center;
@@ -48,46 +48,46 @@ class HeaderLinkComponent extends Component {
     return (
       <Nav>
         <Item>
-          <M_SLink>
+          <MsLink>
             <div>교육 소개</div>
             <i class="fas fa-arrow-circle-right arrow"></i>
-          </M_SLink>
+          </MsLink>
         </Item>
         <Item>
-          <M_SLink>
+          <MsLink>
             <div>온라인 교육 (실시간/영상강의)</div>
             <i class="fas fa-arrow-circle-right arrow"></i>
-          </M_SLink>
+          </MsLink>
         </Item>
         <Item>
-          <M_SLink>
+          <MsLink>
             <div>청소년 캠프</div>
             <i class="fas fa-arrow-circle-right arrow"></i>
-          </M_SLink>
+          </MsLink>
         </Item>
         <Item>
-          <M_SLink>
+          <MsLink>
             <div>찾아가는 체험교실 (1회기)</div>
             <i class="fas fa-arrow-circle-right arrow"></i>
-          </M_SLink>
+          </MsLink>
         </Item>
         <Item>
-          <M_SLink>
+          <MsLink>
             <div>청소년 동아리 (장회기)</div>
             <i class="fas fa-arrow-circle-right arrow"></i>
-          </M_SLink>
+          </MsLink>
         </Item>
         <Item>
-          <M_SLink>
+          <MsLink>
             <div>전문인 특강</div>
             <i class="fas fa-arrow-circle-right arrow"></i>
-          </M_SLink>
+          </MsLink>
         </Item>
         <Item>
-          <M_SLink>
+          <MsLink>
             <div>창의 체험 부스</div>
             <i class="fas fa-arrow-circle-right arrow"></i>
-          </M_SLink>
+          </MsLink>
         </Item>
       </Nav>
     );

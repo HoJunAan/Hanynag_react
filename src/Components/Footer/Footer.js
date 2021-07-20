@@ -4,12 +4,12 @@ import styled from "styled-components";
 //footer 하단 배치를 위한 relative 설정
 const SetRelative = styled.div`
   position: relative;
-  height: 100%;
+  padding-top: 270px;
 `;
 
 const Footer = styled.footer`
   background-color: #444444;
-  height: 33.5vh;
+  height: 270px;
   width: 100vw;
   padding: 5vh 11vw;
   display: flex;
