@@ -1,10 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import lecture from "img/lecture_picture.PNG";
+import { Link } from "react-router-dom";
 
-const Container = styled.div`
+const Container = styled(Link)`
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    transform: translateY(-15px);
+  }
 `;
 
 const PosterImg = styled.img`
@@ -58,17 +65,8 @@ const List = styled.ul`
   }
 `;
 
-const Item = ({
-  src,
-  easyInfo,
-  title,
-  type,
-  target,
-  term,
-  videoOffer,
-  price,
-}) => (
-  <Container>
+const Item = ({ easyInfo, title, type, target, term, videoOffer, price }) => (
+  <Container to="/online">
     <PosterImg src={lecture} alt="lecture_picture" />
     <BottomSection>
       <EasyExplain>{easyInfo}</EasyExplain>

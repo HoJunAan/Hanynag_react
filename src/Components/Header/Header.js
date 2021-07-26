@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import mainLogo from "img/logo.PNG";
-// import HeaderLink from "Components/Header/HeaderLink";
+import HeaderLink from "Components/Header/HeaderLink";
 import "CSS/fonts.css";
 
 const NavBar = styled.div`
@@ -79,6 +79,9 @@ const NavBarNav = styled.ul`
 `;
 
 const Item = styled.li`
+  display: flex;
+  align-items: center;
+  height: 100%;
   text-decoration: none;
   position: relative;
 `;
@@ -86,47 +89,84 @@ const Item = styled.li`
 const MSLink = styled(Link)`
   &:hover {
     color: #388285;
+    ${(props) => (props.mouse = true)}
+  }
+  .prevent {
+    background-color: blue;
   }
 `;
 
-const HeaderComponent = () => (
-  <NavBar>
-    <NavBarHeader>
-      <LogoAndTitle>
-        <MainLogo src={mainLogo} alt="main_logo" />
-        <Title className="title">한양미래연구소</Title>
-      </LogoAndTitle>
-      <LoginAndJoin>
-        <Login>로그인</Login>
-        <Join>회원가입</Join>
-      </LoginAndJoin>
-    </NavBarHeader>
-    <NavBarBottom>
-      <NavBarNav className="font">
-        <Item>
-          <MSLink to="/">
-            <div>교육 소개</div>
-          </MSLink>
-          {/* <HeaderLink />   이거 메뉴!!!!!!!!!!*/}
-        </Item>
-        <Item>
-          <MSLink to="/">
-            <div>교육 후기</div>
-          </MSLink>
-        </Item>
-        <Item>
-          <MSLink to="/">
-            <div>기업 소개</div>
-          </MSLink>
-        </Item>
-        <Item>
-          <MSLink to="/">
-            <div>교육 신청/문의</div>
-          </MSLink>
-        </Item>
-      </NavBarNav>
-    </NavBarBottom>
-  </NavBar>
-);
+const HeaderComponent = () => {
+  const [data] = useState([
+    {
+      HeaderTab: "교육 소개",
+      HeaderLinkTab: [
+        "교육 소개",
+        "온라인 교육 (실시간/영상강의)",
+        "청소년 캠프",
+        "찾아가는 체험교실 (1회기)",
+        "청소년 동아리 (장회기)",
+        "전문인 특강",
+        "창의 체험 부스",
+      ],
+      HeaderLinkUrl: [
+        "/",
+        "/online",
+        "/online",
+        "/online",
+        "/online",
+        "/online",
+        "/online",
+      ],
+      mouseHoverCheck: false,
+    },
+    {
+      HeaderTab: "교육 후기",
+      HeaderLinkTab: ["교육 후기", "캠프 만족도", "언론 보도"],
+      HeaderLinkUrl: ["/online", "/online", "/online"],
+      mouseHoverCheck: false,
+    },
+    {
+      HeaderTab: "기업 소개",
+      HeaderLinkTab: ["기업 소개"],
+      HeaderLinkUrl: ["/online"],
+      mouseHoverCheck: false,
+    },
+    {
+      HeaderTab: "교육 신청/문의",
+      mouseHoverCheck: false,
+    },
+  ]);
+
+  return (
+    <NavBar>
+      <NavBarHeader>
+        <LogoAndTitle>
+          <MainLogo src={mainLogo} alt="main_logo" />
+          <Title className="title">한양미래연구소</Title>
+        </LogoAndTitle>
+        <LoginAndJoin>
+          <Login to="/">로그인</Login>
+          <Join to="/">회원가입</Join>
+        </LoginAndJoin>
+      </NavBarHeader>
+      <NavBarBottom>
+        <NavBarNav className="font">
+          {data.map((tab, index) => (
+            <Item key={index}>
+              <MSLink to="/">
+                <div>{tab.HeaderTab}</div>
+              </MSLink>
+              <HeaderLink
+                HeaderLinkTab={tab.HeaderLinkTab}
+                HeaderLinkUrl={tab.HeaderLinkUrl}
+              />
+            </Item>
+          ))}
+        </NavBarNav>
+      </NavBarBottom>
+    </NavBar>
+  );
+};
 
 export default HeaderComponent;

@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.nav`
   position: absolute;
-  top: 200%;
+  top: 80%;
   left: 0;
   transform: translateX(-35%);
   width: 250px;
-  height: 350px;
   font-weight: 450;
   font-size: 14px;
   z-index: 10;
@@ -17,11 +16,18 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border-radius: 5px;
   padding: 15px 0;
+  visibility: hidden;
+
+  &:hover {
+    visibility: visible;
+  }
 `;
+
 const Item = styled.li`
   padding: 0 15px;
-  height: 100%;
+  height: 40px;
   text-decoration: none;
   opacity: 0.7;
   &:hover {
@@ -43,55 +49,26 @@ const MsLink = styled(Link)`
   }
 `;
 
-class HeaderLinkComponent extends Component {
-  render() {
-    return (
-      <Nav>
-        <Item>
-          <MsLink>
-            <div>교육 소개</div>
-            <i class="fas fa-arrow-circle-right arrow"></i>
-          </MsLink>
-        </Item>
-        <Item>
-          <MsLink>
-            <div>온라인 교육 (실시간/영상강의)</div>
-            <i class="fas fa-arrow-circle-right arrow"></i>
-          </MsLink>
-        </Item>
-        <Item>
-          <MsLink>
-            <div>청소년 캠프</div>
-            <i class="fas fa-arrow-circle-right arrow"></i>
-          </MsLink>
-        </Item>
-        <Item>
-          <MsLink>
-            <div>찾아가는 체험교실 (1회기)</div>
-            <i class="fas fa-arrow-circle-right arrow"></i>
-          </MsLink>
-        </Item>
-        <Item>
-          <MsLink>
-            <div>청소년 동아리 (장회기)</div>
-            <i class="fas fa-arrow-circle-right arrow"></i>
-          </MsLink>
-        </Item>
-        <Item>
-          <MsLink>
-            <div>전문인 특강</div>
-            <i class="fas fa-arrow-circle-right arrow"></i>
-          </MsLink>
-        </Item>
-        <Item>
-          <MsLink>
-            <div>창의 체험 부스</div>
-            <i class="fas fa-arrow-circle-right arrow"></i>
-          </MsLink>
-        </Item>
-      </Nav>
-    );
-  }
-}
+const HeaderLinkComponent = (props) => {
+  const { HeaderLinkTab, HeaderLinkUrl } = props;
+  return (
+    <>
+      {HeaderLinkTab ? (
+        <Nav>
+          {HeaderLinkTab.map((item, index) => (
+            <Item key={index}>
+              {HeaderLinkUrl ? (
+                <MsLink to={HeaderLinkUrl[index]}>
+                  <div>{item}</div>
+                  <i className="fas fa-arrow-circle-right arrow"></i>
+                </MsLink>
+              ) : null}
+            </Item>
+          ))}
+        </Nav>
+      ) : null}
+    </>
+  );
+};
 
 export default HeaderLinkComponent;

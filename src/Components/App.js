@@ -6,9 +6,9 @@ import Footer from "Components/Footer";
 function App() {
   return (
     <>
+      <GlobalStyles />
       <Router />
       <Footer />
-      <GlobalStyles />
     </>
   );
 }
