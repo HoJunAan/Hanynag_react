@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import OnlinePresenter from "./OnlinePresenter";
-import EduList from "Components/SearchEdu/EduList";
 
 const OnlineContainer = () => {
   const [searchTerm, searchTermUpdate] = useState("");
+  const [submitTerm, submitTermUpdate] = useState("");
+  const [type, typeUpdate] = useState("");
   const [subTopData] = useState({
     subTitle: "Online Education",
     mainTitle: "온라인교육",
@@ -75,18 +76,30 @@ const OnlineContainer = () => {
       cost: "실시간:1인 22,000원 동영상:1인 20,000원",
     },
   ]);
-  const [submitCheck, submitUpdate] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    submitUpdate(true);
+    submitTermUpdate(searchTerm);
   };
-
   const updateTerm = (event) => {
     const {
       target: { value },
     } = event;
     searchTermUpdate(value);
+    submitTermUpdate("");
+  };
+
+  const AllCheck = () => {
+    typeUpdate("");
+  };
+  const MakerCheck = () => {
+    typeUpdate("메이커 융합 교육");
+  };
+  const CodingCheck = () => {
+    typeUpdate("코딩 교육");
+  };
+  const SpecialCheck = () => {
+    typeUpdate("특강");
   };
 
   return (
@@ -96,8 +109,12 @@ const OnlineContainer = () => {
       searchTerm={searchTerm}
       updateTerm={updateTerm}
       eduData={eduData}
-      submitCheck={submitCheck}
-      submitUpdate={submitUpdate}
+      submitTerm={submitTerm}
+      AllCheck={AllCheck}
+      MakerCheck={MakerCheck}
+      CodingCheck={CodingCheck}
+      SpecialCheck={SpecialCheck}
+      type={type}
     />
   );
 };
