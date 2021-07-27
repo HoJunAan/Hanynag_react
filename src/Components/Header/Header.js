@@ -64,6 +64,7 @@ const Join = styled(Link)`
 const NavBarBottom = styled.div`
   width: 100vw;
   height: 40%;
+  padding: 0 30vw;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   font-size: 18px;
   display: flex;
@@ -75,15 +76,16 @@ const NavBarNav = styled.ul`
   width: 35vw;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 `;
 
 const Item = styled.li`
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 100%;
   text-decoration: none;
   position: relative;
+  width: 100%;
 `;
 
 const MSLink = styled(Link)`
@@ -118,26 +120,35 @@ const HeaderComponent = () => {
         "/online",
         "/online",
       ],
-      mouseHoverCheck: false,
     },
     {
       HeaderTab: "교육 후기",
       HeaderLinkTab: ["교육 후기", "캠프 만족도", "언론 보도"],
       HeaderLinkUrl: ["/online", "/online", "/online"],
-      mouseHoverCheck: false,
     },
     {
       HeaderTab: "기업 소개",
       HeaderLinkTab: ["기업 소개"],
       HeaderLinkUrl: ["/online"],
-      mouseHoverCheck: false,
     },
     {
       HeaderTab: "교육 신청/문의",
-      mouseHoverCheck: false,
     },
   ]);
 
+  const [hoverVar1, updateVar1] = useState(false);
+  const [hoverVar2, updateVar2] = useState(false);
+  const [hoverVar3, updateVar3] = useState(false);
+  const [hoverVar4, updateVar4] = useState(false);
+
+  const mouseEnter1 = () => updateVar1(true);
+  const mouseEnter2 = () => updateVar2(true);
+  const mouseEnter3 = () => updateVar3(true);
+  const mouseEnter4 = () => updateVar4(true);
+  const mouseLeave1 = () => updateVar1(false);
+  const mouseLeave2 = () => updateVar2(false);
+  const mouseLeave3 = () => updateVar3(false);
+  const mouseLeave4 = () => updateVar4(false);
   return (
     <NavBar>
       <NavBarHeader>
@@ -152,17 +163,52 @@ const HeaderComponent = () => {
       </NavBarHeader>
       <NavBarBottom>
         <NavBarNav className="font">
-          {data.map((tab, index) => (
-            <Item key={index}>
-              <MSLink to="/">
-                <div>{tab.HeaderTab}</div>
-              </MSLink>
-              <HeaderLink
-                HeaderLinkTab={tab.HeaderLinkTab}
-                HeaderLinkUrl={tab.HeaderLinkUrl}
-              />
-            </Item>
-          ))}
+          <Item key="0" onMouseEnter={mouseEnter1} onMouseLeave={mouseLeave1}>
+            <MSLink to="/">
+              <div>{data[0].HeaderTab}</div>
+            </MSLink>
+            <HeaderLink
+              HeaderLinkTab={data[0].HeaderLinkTab}
+              HeaderLinkUrl={data[0].HeaderLinkUrl}
+              hoverVar={hoverVar1}
+            />
+          </Item>
+        </NavBarNav>
+        <NavBarNav className="font">
+          <Item key="0" onMouseEnter={mouseEnter2} onMouseLeave={mouseLeave2}>
+            <MSLink to="/">
+              <div>{data[1].HeaderTab}</div>
+            </MSLink>
+            <HeaderLink
+              HeaderLinkTab={data[1].HeaderLinkTab}
+              HeaderLinkUrl={data[1].HeaderLinkUrl}
+              hoverVar={hoverVar2}
+            />
+          </Item>
+        </NavBarNav>
+        <NavBarNav className="font">
+          <Item key="0" onMouseEnter={mouseEnter3} onMouseLeave={mouseLeave3}>
+            <MSLink to="/">
+              <div>{data[2].HeaderTab}</div>
+            </MSLink>
+            <HeaderLink
+              HeaderLinkTab={data[2].HeaderLinkTab}
+              HeaderLinkUrl={data[2].HeaderLinkUrl}
+              hoverVar={hoverVar3}
+            />
+          </Item>
+        </NavBarNav>
+        <NavBarNav className="font">
+          <Item key="0" onMouseEnter={mouseEnter4} onMouseLeave={mouseLeave4}>
+            <MSLink to="/">
+              <div>{data[3].HeaderTab}</div>
+            </MSLink>
+            <HeaderLink
+              HeaderLinkTab={data[3].HeaderLinkTab}
+              HeaderLinkUrl={data[3].HeaderLinkUrl}
+              hoverVar={hoverVar4}
+            />
+          </Item>
         </NavBarNav>
       </NavBarBottom>
     </NavBar>

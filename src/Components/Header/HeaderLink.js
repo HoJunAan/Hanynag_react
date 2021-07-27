@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Nav = styled.nav`
   position: absolute;
   top: 80%;
-  left: 0;
+  left: 25%;
   transform: translateX(-35%);
   width: 250px;
   font-weight: 450;
@@ -15,11 +15,9 @@ const Nav = styled.nav`
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   border-radius: 5px;
   padding: 15px 0;
-  visibility: hidden;
-
   &:hover {
     visibility: visible;
   }
@@ -49,11 +47,11 @@ const MsLink = styled(Link)`
   }
 `;
 
-const HeaderLinkComponent = (props) => {
-  const { HeaderLinkTab, HeaderLinkUrl } = props;
+const HeaderLinkComponent = ({ HeaderLinkTab, HeaderLinkUrl, hoverVar }) => {
   return (
     <>
-      {HeaderLinkTab ? (
+      {console.log(hoverVar)}
+      {hoverVar && HeaderLinkTab ? (
         <Nav>
           {HeaderLinkTab.map((item, index) => (
             <Item key={index}>
