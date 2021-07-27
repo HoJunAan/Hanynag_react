@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import OnlinePresenter from "./OnlinePresenter";
+import EduList from "Components/SearchEdu/EduList";
 
 const OnlineContainer = () => {
   const [searchTerm, searchTermUpdate] = useState("");
@@ -10,7 +11,7 @@ const OnlineContainer = () => {
   });
   const [eduData] = useState([
     {
-      imgUrl: "img/edu_img.PNG",
+      imgUrl: "/img/edu_img.PNG",
       type: "메이커 융합 교육",
       title: "3D프린팅 전문가",
       target: "초등/중등/고등",
@@ -74,13 +75,11 @@ const OnlineContainer = () => {
       cost: "실시간:1인 22,000원 동영상:1인 20,000원",
     },
   ]);
+  const [submitCheck, submitUpdate] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    searchByTerm();
-  };
-
-  const searchByTerm = () => {
-    console.log(searchTerm);
+    submitUpdate(true);
   };
 
   const updateTerm = (event) => {
@@ -97,6 +96,8 @@ const OnlineContainer = () => {
       searchTerm={searchTerm}
       updateTerm={updateTerm}
       eduData={eduData}
+      submitCheck={submitCheck}
+      submitUpdate={submitUpdate}
     />
   );
 };

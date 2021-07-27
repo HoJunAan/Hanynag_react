@@ -4,8 +4,7 @@ import EduList from "Components/SearchEdu/EduList";
 import styled from "styled-components";
 
 const SearchSection = styled.section`
-  height: 100vh;
-  padding: 40px 200px;
+  padding: 40px 13vw;
 `;
 
 const Form = styled.form`
@@ -31,8 +30,10 @@ const Input = styled.input`
 `;
 
 const EduGridSection = styled.div`
-  background-color: antiquewhite;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(2, 500px);
+  grid-gap: 30px;
 `;
 
 const OnlinePresenter = ({
@@ -41,6 +42,8 @@ const OnlinePresenter = ({
   searchTerm,
   updateTerm,
   eduData,
+  submitCheck,
+  submitUpdate,
 }) => (
   <>
     <SubTopVariety subTopData={subTopData} />
@@ -53,9 +56,31 @@ const OnlinePresenter = ({
         ></Input>
       </Form>
       <EduGridSection>
-        {eduData.map((item) => (
-          <EduList item={item}></EduList>
-        ))}
+        {submitCheck === false
+          ? eduData.map((item, index) => (
+              <EduList
+                key={index}
+                imgUrl={item.imgUrl}
+                type={item.type}
+                title={item.title}
+                target={item.target}
+                result={item.result}
+                cost={item.cost}
+              />
+            ))
+          : eduData
+              .filter((item) => item.title.includes(searchTerm))
+              .map((item, index) => (
+                <EduList
+                  key={index}
+                  imgUrl={item.imgUrl}
+                  type={item.type}
+                  title={item.title}
+                  target={item.target}
+                  result={item.result}
+                  cost={item.cost}
+                />
+              ))}
       </EduGridSection>
     </SearchSection>
   </>

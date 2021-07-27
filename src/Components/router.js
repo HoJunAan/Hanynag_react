@@ -10,7 +10,6 @@ const Router = () => (
     <Switch>
       <Route path="/" exact component={Introduce} />
       <Route path="/online" exact component={Online} />
-
       <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>
