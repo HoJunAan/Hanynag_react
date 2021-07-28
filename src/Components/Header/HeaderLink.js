@@ -50,7 +50,6 @@ const MsLink = styled(Link)`
 const HeaderLinkComponent = ({ HeaderLinkTab, HeaderLinkUrl, hoverVar }) => {
   return (
     <>
-      {console.log(hoverVar)}
       {hoverVar && HeaderLinkTab ? (
         <Nav>
           {HeaderLinkTab.map((item, index) => (

@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Poster = styled.div`
+const Poster = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +70,7 @@ const Bar = styled.div`
 `;
 const EduList = ({ imgUrl, type, title, target, result, cost }) => {
   return (
-    <Poster>
+    <Poster to="/online/maker1">
       <PosterImg src={require("img/edu_img.PNG").default} alt="lecture" />
       <InfoSection>
         <Type>

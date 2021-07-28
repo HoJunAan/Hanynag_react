@@ -1,8 +1,9 @@
 import React from "react";
-import SubTopVariety from "Components/SubTopVariety";
-import EduList from "Components/SearchEdu/EduList";
+import { BrowserRouter, Route } from "react-router-dom";
 import styled from "styled-components";
-
+import SubTop2 from "Components/SubTop2";
+import EduList from "Components/SearchEdu/EduList";
+import EduDetail from "Routes/EduDetail";
 const SearchSection = styled.section`
   padding: 40px 13vw;
 `;
@@ -81,7 +82,7 @@ const OnlinePresenter = ({
   type,
 }) => (
   <>
-    <SubTopVariety subTopData={subTopData} />
+    <SubTop2 subTopData={subTopData} />
     <SearchSection>
       <Form onSubmit={handleSubmit}>
         <Input

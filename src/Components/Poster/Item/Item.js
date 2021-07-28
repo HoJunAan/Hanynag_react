@@ -74,7 +74,7 @@ const Item = ({ easyInfo, title, type, target, term, videoOffer, price }) => (
         {title}
         <TypeOfEdu>{type}</TypeOfEdu>
       </Title>
-      <Bar></Bar>
+      <Bar />
       <Paragraph>
         <List>
           <li>{target}</li>
