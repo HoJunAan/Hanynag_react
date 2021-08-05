@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import SubTop3 from "Components/EduDetailComponent/SubTop3";
-import DetailIntro from "Components/EduDetailComponent/DetailIntro";
-import Goal from "Components/EduDetailComponent/Goal";
-import Curriculum from "Components/EduDetailComponent/Curriculum";
-import PictureSection from "Components/EduDetailComponent/PictureSection";
+import {
+  SubTop3,
+  DetailIntro,
+  Goal,
+  Curriculum,
+  PictureSection,
+  ExpectEffect,
+  Review,
+  WayCome,
+} from "Components/EduDetailComponent";
 
 const Page = styled.div`
-  margin: 10vh 10vw;
+  padding: 10vh 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,10 +68,10 @@ const EduDetailPresenter = () => {
         <DetailIntro Detail={Detail} />
         <Goal />
         <Curriculum CurriculumData={CurriculumData} />
-        {/* <PictureSection /> */}
-        {/* <ExpectEffect /> */}
-        {/* <Review /> */}
-        {/* <Map /> */}
+        <PictureSection />
+        <ExpectEffect />
+        <Review />
+        <WayCome />
         {/* <RefundPolicy /> */}
       </Page>
     </>
