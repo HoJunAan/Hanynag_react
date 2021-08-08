@@ -13,19 +13,28 @@ const Main = styled.div`
   display: flex;
 `;
 const Info = styled.div`
-  padding: 20px;
+  padding: 10px 0;
+  padding-left: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 14px;
 `;
 const Tab = styled.div``;
-const Title = styled.div``;
-const Bar = styled.div``;
-const Place = styled.div``;
+const Title = styled.span`
+  padding-bottom: 5px;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.3);
+`;
 
+const Place = styled.div`
+  margin-top: 20px;
+`;
 const { kakao } = window;
 const MapContainer = () => {
   useEffect(() => {
     const container = document.getElementById("myMap");
     const options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
+      center: new kakao.maps.LatLng(37.29696381856806, 126.83423554770089),
       level: 4,
     };
     const map = new kakao.maps.Map(container, options);
@@ -35,7 +44,7 @@ const MapContainer = () => {
     <div
       id="myMap"
       style={{
-        width: "400px",
+        width: "550px",
         height: "250px",
       }}
     ></div>
@@ -50,18 +59,16 @@ const WayCome = () => (
       <Info>
         <Tab>
           <Title>본사</Title>
-          <Bar />
           <Place>
-            <span>경기도 안산시 상록구 한양대학로 55 5공학관</span>
-            <span>지하 1층 창업 1실</span>
+            <div>경기도 안산시 상록구 한양대학로 55 5공학관</div>
+            <div>지하 1층 창업 1실</div>
           </Place>
         </Tab>
         <Tab>
           <Title>연구소</Title>
-          <Bar />
           <Place>
-            <span>경기도 안산시 초지동 신명트윈타워 A동5층</span>
-            <span>(원포공원1로 59)</span>
+            <div>경기도 안산시 초지동 신명트윈타워 A동5층</div>
+            <div>(원포공원1로 59)</div>
           </Place>
         </Tab>
       </Info>

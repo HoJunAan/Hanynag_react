@@ -35,7 +35,6 @@ const Info = styled.div`
 `;
 const RightSide = styled.div`
   padding-left: 3vw;
-
   display: flex;
   flex-direction: column;
   gap: 10px;

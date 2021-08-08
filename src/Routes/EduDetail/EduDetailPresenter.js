@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useRef, forwardRef } from "react";
 import styled from "styled-components";
 import {
   SubTop3,
@@ -9,7 +9,13 @@ import {
   ExpectEffect,
   Review,
   WayCome,
+  RefundPolicy,
+  SideNav,
 } from "Components/EduDetailComponent";
+
+const Section = styled.div`
+  position: relative;
+`;
 
 const Page = styled.div`
   padding: 10vh 0;
@@ -60,21 +66,26 @@ const EduDetailPresenter = () => {
       "다양한 분양에서 활용되고 있는 3D프린팅 산업의 가능성 및 미래 산업에 필요로 하는 인재의 모습 이야기하기",
     ],
   });
+  const tabRef = useRef([]);
 
   return (
-    <>
+    <Section>
       <SubTop3 title="3D프린팅 전문가" />
       <Page>
         <DetailIntro Detail={Detail} />
         <Goal />
-        <Curriculum CurriculumData={CurriculumData} />
-        <PictureSection />
+        <Curriculum
+          ref={(el) => (tabRef.current[1] = el)}
+          CurriculumData={CurriculumData}
+        />
+        <PictureSection ref={(el) => (tabRef.current[2] = el)} />
         <ExpectEffect />
-        <Review />
+        <Review ref={(el) => (tabRef.current[3] = el)} />
         <WayCome />
-        {/* <RefundPolicy /> */}
+        <RefundPolicy />
+        <SideNav tabRef={tabRef} />
       </Page>
-    </>
+    </Section>
   );
 };
 

@@ -7,6 +7,12 @@ require에 해당 url을 문자열로 집어넣어 실행 중
 
 3.header 스크롤시 줄어드는 이벤트
 
-진행사항
+4.http://hyedu.kr/skin/page/online_maker01.html해당 페이지 가장
+아래에 하나의 리스트 안에서 분리하는 부분
 
-EduDetail 페이지 수업사진 넣는 부분 전까지 진행
+5.sideNav클릭으로 스크롤 이동 이벤트에서 useRef는 함수형에선
+사용이 안되서 구현에 어려움.
+
+- 우선은 &nbsp;으로 디자인을 일치시킴
+
+진행사항

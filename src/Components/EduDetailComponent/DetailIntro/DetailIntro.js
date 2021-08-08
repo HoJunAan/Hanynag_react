@@ -62,7 +62,7 @@ const DetailIntro = ({ Detail }) => {
         </Key>
         <Value>
           {target.map((item, index) => (
-            <li>{item}</li>
+            <li key={index}>{item}</li>
           ))}
         </Value>
         <Key>
@@ -70,7 +70,7 @@ const DetailIntro = ({ Detail }) => {
         </Key>
         <Value>
           {personnel.map((item, index) => (
-            <li>{item}</li>
+            <li key={index}>{item}</li>
           ))}
         </Value>
         <Key>
@@ -78,7 +78,7 @@ const DetailIntro = ({ Detail }) => {
         </Key>
         <Value>
           {expense.map((item, index) => (
-            <LiRed>{item}</LiRed>
+            <LiRed key={index}>{item}</LiRed>
           ))}
         </Value>
         <Key>
@@ -86,7 +86,7 @@ const DetailIntro = ({ Detail }) => {
         </Key>
         <Value>
           {time.map((item, index) => (
-            <li>{item}</li>
+            <li key={index}>{item}</li>
           ))}
         </Value>
         <Key>
@@ -94,7 +94,7 @@ const DetailIntro = ({ Detail }) => {
         </Key>
         <Value>
           {place.map((item, index) => (
-            <li>{item}</li>
+            <li key={index}>{item}</li>
           ))}
         </Value>
         <Key>
@@ -102,7 +102,7 @@ const DetailIntro = ({ Detail }) => {
         </Key>
         <Value>
           {material.map((item, index) => (
-            <li>{item}</li>
+            <li key={index}>{item}</li>
           ))}
         </Value>
         <Key>
@@ -110,7 +110,7 @@ const DetailIntro = ({ Detail }) => {
         </Key>
         <Value>
           {result.map((item, index) => (
-            <li>{item}</li>
+            <li key={index}>{item}</li>
           ))}
         </Value>
         <Key>
@@ -118,7 +118,7 @@ const DetailIntro = ({ Detail }) => {
         </Key>
         <Value>
           {question.map((item, index) => (
-            <li>{item}</li>
+            <li key={index}>{item}</li>
           ))}
         </Value>
       </GridSection>

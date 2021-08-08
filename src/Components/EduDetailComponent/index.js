@@ -6,6 +6,8 @@ import PictureSection from "./PictureSection";
 import ExpectEffect from "./ExpectEffect";
 import Review from "./Review";
 import WayCome from "./WayCome";
+import RefundPolicy from "./RefundPolicy";
+import SideNav from "./SideNav";
 
 export {
   SubTop3,
@@ -16,4 +18,6 @@ export {
   ExpectEffect,
   Review,
   WayCome,
+  RefundPolicy,
+  SideNav,
 };
