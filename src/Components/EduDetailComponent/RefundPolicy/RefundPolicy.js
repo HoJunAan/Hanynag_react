@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import SubTitleLeftBar from "../SubTitleLeftBar";
 
@@ -72,21 +72,21 @@ const RefundPolicy = () => (
       </GridArea>
       <ListArea>
         <Li>
-          <i class="fas fa-check-circle" />
+          <i className="fas fa-check-circle" />
           &nbsp;&nbsp;&nbsp;환불 업무시간:평일 오전 10:00~오후 06:00
           <Br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (점심시간:오후 12:00~13:00)
         </Li>
         <Li>
           <div>
-            <i class="fas fa-check-circle" />
+            <i className="fas fa-check-circle" />
             &nbsp;&nbsp;&nbsp;토·일요일 및 국· 공휴일은 취소 및 변경신청이 접수
             되지 않으며 취소 일수에서 제외됩니다.
           </div>
         </Li>
         <Li>
           <div>
-            <i class="fas fa-check-circle" />
+            <i className="fas fa-check-circle" />
             &nbsp;&nbsp;&nbsp;문의:070-8064-0829
           </div>
         </Li>

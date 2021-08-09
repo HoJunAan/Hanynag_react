@@ -10,8 +10,8 @@ require에 해당 url을 문자열로 집어넣어 실행 중
 4.http://hyedu.kr/skin/page/online_maker01.html해당 페이지 가장
 아래에 하나의 리스트 안에서 분리하는 부분
 
-5.sideNav클릭으로 스크롤 이동 이벤트에서 useRef는 함수형에선
-사용이 안되서 구현에 어려움.
+5.sideNav클릭으로 스크롤 이동 이벤트에서 scrollIntoView로
+구현했는데 header에 의해 일부 가려지는 부분.
 
 - 우선은 &nbsp;으로 디자인을 일치시킴
 

@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import styled from "styled-components";
 import SubTitle from "Components/EduDetailComponent/SubTitle";
 
@@ -24,9 +25,9 @@ const Column = styled.div`
   align-items: center;
 `;
 
-const PictureSection = () => {
+const PictureSection = forwardRef(({ _ }, ref) => {
   return (
-    <Section>
+    <Section ref={ref}>
       <SubTitle title="교육 사진" />
       <Grid>
         <Column>
@@ -44,6 +45,6 @@ const PictureSection = () => {
       </Grid>
     </Section>
   );
-};
+});
 
 export default PictureSection;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import EduDetailPresenter from "./EduDetailPresenter";
 
 const EduDetailContainer = () => {

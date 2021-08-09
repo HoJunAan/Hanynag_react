@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef, forwardRef } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import {
   SubTop3,
@@ -72,7 +72,7 @@ const EduDetailPresenter = () => {
     <Section>
       <SubTop3 title="3D프린팅 전문가" />
       <Page>
-        <DetailIntro Detail={Detail} />
+        <DetailIntro Detail={Detail} ref={(el) => (tabRef.current[0] = el)} />
         <Goal />
         <Curriculum
           ref={(el) => (tabRef.current[1] = el)}
@@ -83,7 +83,7 @@ const EduDetailPresenter = () => {
         <Review ref={(el) => (tabRef.current[3] = el)} />
         <WayCome />
         <RefundPolicy />
-        <SideNav tabRef={tabRef} />
+        <SideNav ref={tabRef} />
       </Page>
     </Section>
   );

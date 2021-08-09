@@ -1,7 +1,5 @@
-import { useContext } from "react";
-import styled from "styled-components";
 import { forwardRef } from "react";
-import { EduContext } from "Routes/EduDetail/context";
+import styled from "styled-components";
 
 const SubTop = styled.div`
   position: fixed;
@@ -34,32 +32,24 @@ const Top = styled.div`
   color: white;
 `;
 
-const SubTopComponent = ({ tabRef }) => {
+const SubTopComponent = forwardRef(({ tabRef }, ref) => {
   return (
     <SubTop>
       <Top>온라인 교육</Top>
-      <Li
-        onClick={() => tabRef.current[0].scrollIntoView({ behavior: "smooth" })}
-      >
+      <Li onClick={() => ref.current[0].scrollIntoView({ behavior: "smooth" })}>
         교육 소개
       </Li>
-      <Li
-        onClick={() => tabRef.current[1].scrollIntoView({ behavior: "smooth" })}
-      >
+      <Li onClick={() => ref.current[1].scrollIntoView({ behavior: "smooth" })}>
         커리큘럼
       </Li>
-      <Li
-        onClick={() => tabRef.current[2].scrollIntoView({ behavior: "smooth" })}
-      >
+      <Li onClick={() => ref.current[2].scrollIntoView({ behavior: "smooth" })}>
         교육 사진
       </Li>
-      <Li
-        onClick={() => tabRef.current[3].scrollIntoView({ behavior: "smooth" })}
-      >
+      <Li onClick={() => ref.current[3].scrollIntoView({ behavior: "smooth" })}>
         교육 후기
       </Li>
     </SubTop>
   );
-};
+});
 
 export default SubTopComponent;

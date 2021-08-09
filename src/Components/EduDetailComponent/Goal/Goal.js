@@ -31,7 +31,7 @@ const Circle = styled.div`
   font-size: 12px;
 `;
 
-const Goal = ({}) => (
+const Goal = () => (
   <>
     <SubTitle title={"교육 목표"} />
     <Box>
@@ -39,7 +39,7 @@ const Goal = ({}) => (
       <div>3D프린팅에 대해 알아보고,</div>
       <div> 3D모델링 툴을 익혀본다.</div>
       <Circle>
-        <i class="fas fa-check"></i>
+        <i className="fas fa-check" />
       </Circle>
     </Box>
   </>

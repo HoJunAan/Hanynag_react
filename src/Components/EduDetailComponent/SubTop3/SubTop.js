@@ -13,8 +13,6 @@ const Title = styled.h2`
   font-size: 40px;
 `;
 
-const Concept = styled.div``;
-
 const SubTopComponent = ({ title }) => (
   <SubTop>
     <Title>{title}</Title>

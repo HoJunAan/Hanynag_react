@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import styled from "styled-components";
 import SubTitle from "Components/EduDetailComponent/SubTitle";
 
@@ -45,10 +46,10 @@ const LiTitle = styled.div`
   font-weight: 550;
 `;
 
-const Curriculum = ({ CurriculumData }) => {
+const Curriculum = forwardRef(({ CurriculumData }, ref) => {
   const { subject, introduction, deployment, finish } = CurriculumData;
   return (
-    <Section>
+    <Section ref={ref}>
       <SubTitle title={"커리큘럼"} />
       <GridSection>
         <Key>
@@ -57,12 +58,12 @@ const Curriculum = ({ CurriculumData }) => {
         <Value>
           {introduction.map((item, index) =>
             index === 0 ? (
-              <LiTitle>
-                <i class="fas fa-check-circle"></i>&nbsp;&nbsp;&nbsp;
+              <LiTitle key={index}>
+                <i className="fas fa-check-circle"></i>&nbsp;&nbsp;&nbsp;
                 {item}
               </LiTitle>
             ) : (
-              <Li>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;{item}</Li>
+              <Li key={index}>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;{item}</Li>
             )
           )}
         </Value>
@@ -72,12 +73,12 @@ const Curriculum = ({ CurriculumData }) => {
         <Value>
           {deployment.map((item, index) =>
             index === 0 ? (
-              <LiTitle>
-                <i class="fas fa-check-circle"></i>&nbsp;&nbsp;&nbsp;
+              <LiTitle key={index}>
+                <i className="fas fa-check-circle"></i>&nbsp;&nbsp;&nbsp;
                 {item}
               </LiTitle>
             ) : (
-              <Li>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;{item}</Li>
+              <Li key={index}>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;{item}</Li>
             )
           )}
         </Value>
@@ -87,18 +88,18 @@ const Curriculum = ({ CurriculumData }) => {
         <Value>
           {finish.map((item, index) =>
             index === 0 ? (
-              <LiTitle>
-                <i class="fas fa-check-circle"></i>&nbsp;&nbsp;&nbsp;
+              <LiTitle key={index}>
+                <i className="fas fa-check-circle"></i>&nbsp;&nbsp;&nbsp;
                 {item}
               </LiTitle>
             ) : (
-              <Li>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;{item}</Li>
+              <Li key={index}>&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;{item}</Li>
             )
           )}
         </Value>
       </GridSection>
     </Section>
   );
-};
+});
 
 export default Curriculum;

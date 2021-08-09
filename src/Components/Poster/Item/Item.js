@@ -52,7 +52,7 @@ const Bar = styled.div`
   opacity: 0.2;
 `;
 
-const Paragraph = styled.p``;
+const Paragraph = styled.div``;
 
 const List = styled.ul`
   list-style-type: disc;

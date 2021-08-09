@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import mainLogo from "img/logo.PNG";
@@ -9,7 +9,6 @@ const NavBar = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,7 +62,7 @@ const Join = styled(Link)`
 
 const NavBarBottom = styled.div`
   width: 100vw;
-  height: 40%;
+  height: 60px;
   padding: 0 30vw;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   font-size: 18px;
@@ -149,18 +148,42 @@ const HeaderComponent = () => {
   const mouseLeave2 = () => updateVar2(false);
   const mouseLeave3 = () => updateVar3(false);
   const mouseLeave4 = () => updateVar4(false);
+
+  function useScroll() {
+    const [scrollY, setScrollY] = useState(0);
+
+    const listener = () => {
+      setScrollY(window.pageYOffset);
+    };
+    useEffect(() => {
+      window.addEventListener("scroll", listener);
+      return () => {
+        window.removeEventListener("scroll", listener);
+      };
+    }, []);
+
+    return scrollY;
+  }
+
+  const CheckY = () => {
+    let data = useScroll();
+    return data < 200 ? true : false;
+  };
+
   return (
     <NavBar>
-      <NavBarHeader>
-        <LogoAndTitle>
-          <MainLogo src={mainLogo} alt="main_logo" />
-          <Title className="title">한양미래연구소</Title>
-        </LogoAndTitle>
-        <LoginAndJoin>
-          <Login to="/">로그인</Login>
-          <Join to="/">회원가입</Join>
-        </LoginAndJoin>
-      </NavBarHeader>
+      {CheckY() ? (
+        <NavBarHeader>
+          <LogoAndTitle>
+            <MainLogo src={mainLogo} alt="main_logo" />
+            <Title className="title">한양미래연구소</Title>
+          </LogoAndTitle>
+          <LoginAndJoin>
+            <Login to="/">로그인</Login>
+            <Join to="/">회원가입</Join>
+          </LoginAndJoin>
+        </NavBarHeader>
+      ) : null}
       <NavBarBottom>
         <NavBarNav className="font">
           <Item key="0" onMouseEnter={mouseEnter1} onMouseLeave={mouseLeave1}>

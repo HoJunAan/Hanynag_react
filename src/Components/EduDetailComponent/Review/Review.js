@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import styled from "styled-components";
 import SubTitleLeftBar from "../SubTitleLeftBar";
 
@@ -44,25 +45,25 @@ const Star = styled.div`
   color: #54efac;
 `;
 
-const Review = () => {
+const Review = forwardRef(({ _ }, ref) => {
   return (
-    <Section>
+    <Section ref={ref}>
       <SubTitleLeftBar title="교육 후기" />
 
       <Box>
         <LeftSide>
           <Picture>
-            <i class="far fa-user"></i>
+            <i className="far fa-user" />
           </Picture>
           <Info>
             <span>서울**고 1학년</span>
             <span>김⚪⚪</span>
             <Star>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
             </Star>
           </Info>
         </LeftSide>
@@ -83,17 +84,17 @@ const Review = () => {
       <Box>
         <LeftSide>
           <Picture>
-            <i class="far fa-user"></i>
+            <i className="far fa-user" />
           </Picture>
           <Info>
             <span>서울**고 1학년</span>
             <span>김⚪⚪</span>
             <Star>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
+              <i className="fas fa-star" />
             </Star>
           </Info>
         </LeftSide>
@@ -113,5 +114,5 @@ const Review = () => {
       </Box>
     </Section>
   );
-};
+});
 export default Review;

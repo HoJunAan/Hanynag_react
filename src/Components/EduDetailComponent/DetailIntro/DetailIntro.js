@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import styled from "styled-components";
 import SubTitle from "Components/EduDetailComponent/SubTitle";
 
@@ -41,7 +42,7 @@ const Value = styled.ul`
 const LiRed = styled.li`
   color: red;
 `;
-const DetailIntro = ({ Detail }) => {
+const DetailIntro = forwardRef(({ Detail }, ref) => {
   const {
     subject,
     target,
@@ -54,7 +55,7 @@ const DetailIntro = ({ Detail }) => {
     question,
   } = Detail;
   return (
-    <Section>
+    <Section ref={ref}>
       <SubTitle title={"교육 소개"} />
       <GridSection>
         <Key>
@@ -124,6 +125,6 @@ const DetailIntro = ({ Detail }) => {
       </GridSection>
     </Section>
   );
-};
+});
 
 export default DetailIntro;
