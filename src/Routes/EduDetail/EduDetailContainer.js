@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
+
 import EduDetailPresenter from "./EduDetailPresenter";
 
 const EduDetailContainer = () => {
-  return <EduDetailPresenter />;
+  const tabRef = useRef([]);
+
+  return <EduDetailPresenter tabRef={tabRef} />;
 };
 
 export default EduDetailContainer;

@@ -13,7 +13,6 @@ const Box = styled.div`
   font-size: 14px;
   padding: 35px 40px;
   position: relative;
-  font-weight: 500;
 `;
 
 const Circle = styled.div`

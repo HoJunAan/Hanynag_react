@@ -13,7 +13,7 @@ const Main = styled.div`
   display: flex;
 `;
 const Info = styled.div`
-  padding: 10px 0;
+  padding: 15px 0;
   padding-left: 130px;
   display: flex;
   flex-direction: column;

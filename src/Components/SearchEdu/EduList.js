@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import BarComponent from "Components/Bar";
 
 const Poster = styled(Link)`
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid rgba(0, 0, 0, 0.2);
-  padding: 30px 15px;
+  padding: 30px 20px;
   letter-spacing: -1px;
   transition: border 0.4s linear;
   transition: box-shadow 0.4s linear;
@@ -25,11 +26,14 @@ const PosterImg = styled.img`
 
 const InfoSection = styled.div`
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 `;
+
 const Type = styled.div`
   background-color: #e8f9e4;
   display: flex;
@@ -38,7 +42,6 @@ const Type = styled.div`
   width: 110px;
   height: 30px;
   border-radius: 7px;
-  font-weight: 550;
   font-size: 12px;
 `;
 const Title = styled.div`
@@ -52,26 +55,31 @@ const Li = styled.li`
   list-style: none;
   font-size: 13px;
   padding: 5px 0;
-  &:before {
+  :before {
     content: "·";
     font-size: 20px;
     padding-right: 3px;
   }
-  &:last-child {
+  :last-child,
+  :nth-child(3) {
     color: red;
+  }
+  :last-child {
+    :before {
+      content: "";
+    }
   }
 `;
 
-const Bar = styled.div`
+const Bar = styled(BarComponent)`
   width: 20px;
   height: 2px;
-  background-color: black;
-  opacity: 0.2;
 `;
-const EduList = ({ imgUrl, type, title, target, result, cost }) => {
+
+const EduList = ({ imgUrl, type, title, target, result, cost1, cost2 }) => {
   return (
     <Poster to="/online/maker1">
-      <PosterImg src={require("img/edu_img.PNG").default} alt="lecture" />
+      <PosterImg src={require(`../../${imgUrl}`).default} alt="lecture" />
       <InfoSection>
         <Type>
           <span>{type}</span>
@@ -81,7 +89,8 @@ const EduList = ({ imgUrl, type, title, target, result, cost }) => {
         <Ul>
           <Li>{target}</Li>
           <Li>{result}</Li>
-          <Li>{cost}</Li>
+          <Li>{cost1}</Li>
+          <Li>&nbsp;&nbsp;{cost2}</Li>
         </Ul>
       </InfoSection>
     </Poster>

@@ -1,3 +1,3 @@
-import SubTop from "./SubTop";
+import SubTop2 from "./SubTop2";
 
-export default SubTop;
+export default SubTop2;

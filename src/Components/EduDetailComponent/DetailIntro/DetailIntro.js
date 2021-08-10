@@ -7,7 +7,6 @@ const Section = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  letter-spacing: -2px;
   height: 100%;
 `;
 
@@ -15,7 +14,8 @@ const GridSection = styled.div`
   display: grid;
   grid-template-columns: 100px 700px;
   margin: 50px 0;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 14px;
 `;
 
 const Key = styled.div`
@@ -31,11 +31,11 @@ const Value = styled.ul`
   align-items: flex-start;
   flex-direction: column;
   justify-content: center;
-  padding: 30px 30px;
+  padding: 20px 30px;
   border-bottom: 2px dotted #e8e8e8;
 
   li {
-    padding: 5px 0;
+    padding: 10px 0;
   }
 `;
 

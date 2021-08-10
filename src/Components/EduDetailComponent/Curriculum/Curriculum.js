@@ -10,8 +10,9 @@ const Section = styled.div`
 
 const GridSection = styled.div`
   display: grid;
-  grid-template-columns: 100px 500px;
-  font-weight: 500;
+  grid-template-columns: 90px 500px;
+  font-weight: 400;
+  font-size: 14px;
   margin: 30px 20vw;
 `;
 

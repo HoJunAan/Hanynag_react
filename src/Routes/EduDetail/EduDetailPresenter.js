@@ -24,7 +24,7 @@ const Page = styled.div`
   align-items: center;
 `;
 
-const EduDetailPresenter = () => {
+const EduDetailPresenter = ({ tabRef }) => {
   const [Detail] = useState({
     subject: [
       "대상",
@@ -66,7 +66,6 @@ const EduDetailPresenter = () => {
       "다양한 분양에서 활용되고 있는 3D프린팅 산업의 가능성 및 미래 산업에 필요로 하는 인재의 모습 이야기하기",
     ],
   });
-  const tabRef = useRef([]);
 
   return (
     <Section>

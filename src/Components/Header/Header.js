@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import "CSS/fonts.css";
 import mainLogo from "img/logo.PNG";
 import HeaderLink from "Components/Header/HeaderLink";
-import "CSS/fonts.css";
 
 const NavBar = styled.div`
   position: fixed;
@@ -14,6 +14,7 @@ const NavBar = styled.div`
   align-items: center;
   background-color: white;
   z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 `;
 
 const NavBarHeader = styled.div`
@@ -32,6 +33,7 @@ const LogoAndTitle = styled.div`
   display: flex;
   transform: translateX(-50%);
   align-items: center;
+  width: 300px;
 `;
 const MainLogo = styled.img`
   width: 55px;
@@ -39,17 +41,17 @@ const MainLogo = styled.img`
 `;
 
 const Title = styled.div`
-  color: #388285;
-  font-size: 35px;
-  font-family: "Nanum Myeongjo", serif;
-  font-weight: 700;
+  color: var(--main-color);
+  font-size: 33px;
   margin-left: 13px;
+  font-family: "Sunflower", sans-serif;
 `;
 
 const LoginAndJoin = styled.div`
   display: flex;
   margin-right: 20vw;
   font-size: 14px;
+  font-weight: 500;
 `;
 const Login = styled(Link)`
   padding-right: 20px;
@@ -60,31 +62,30 @@ const Join = styled(Link)`
   padding-left: 20px;
 `;
 
-const NavBarBottom = styled.div`
-  width: 100vw;
-  height: 60px;
-  padding: 0 30vw;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  font-size: 18px;
+const NavBarWrap = styled.div`
   display: flex;
   justify-content: center;
+  width: 100vw;
   background-color: white;
 `;
 
-const NavBarNav = styled.ul`
-  width: 35vw;
+const NavBarBottom = styled.div`
+  width: 600px;
+  height: 60px;
+  font-size: 18px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
 `;
+
+const NavBarNav = styled.ul``;
 
 const Item = styled.li`
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100%;
   text-decoration: none;
   position: relative;
-  width: 100%;
 `;
 
 const MSLink = styled(Link)`
@@ -176,7 +177,7 @@ const HeaderComponent = () => {
         <NavBarHeader>
           <LogoAndTitle>
             <MainLogo src={mainLogo} alt="main_logo" />
-            <Title className="title">한양미래연구소</Title>
+            <Title>한양미래연구소</Title>
           </LogoAndTitle>
           <LoginAndJoin>
             <Login to="/">로그인</Login>
@@ -184,56 +185,58 @@ const HeaderComponent = () => {
           </LoginAndJoin>
         </NavBarHeader>
       ) : null}
-      <NavBarBottom>
-        <NavBarNav className="font">
-          <Item key="0" onMouseEnter={mouseEnter1} onMouseLeave={mouseLeave1}>
-            <MSLink to="/">
-              <div>{data[0].HeaderTab}</div>
-            </MSLink>
-            <HeaderLink
-              HeaderLinkTab={data[0].HeaderLinkTab}
-              HeaderLinkUrl={data[0].HeaderLinkUrl}
-              hoverVar={hoverVar1}
-            />
-          </Item>
-        </NavBarNav>
-        <NavBarNav className="font">
-          <Item key="0" onMouseEnter={mouseEnter2} onMouseLeave={mouseLeave2}>
-            <MSLink to="/">
-              <div>{data[1].HeaderTab}</div>
-            </MSLink>
-            <HeaderLink
-              HeaderLinkTab={data[1].HeaderLinkTab}
-              HeaderLinkUrl={data[1].HeaderLinkUrl}
-              hoverVar={hoverVar2}
-            />
-          </Item>
-        </NavBarNav>
-        <NavBarNav className="font">
-          <Item key="0" onMouseEnter={mouseEnter3} onMouseLeave={mouseLeave3}>
-            <MSLink to="/">
-              <div>{data[2].HeaderTab}</div>
-            </MSLink>
-            <HeaderLink
-              HeaderLinkTab={data[2].HeaderLinkTab}
-              HeaderLinkUrl={data[2].HeaderLinkUrl}
-              hoverVar={hoverVar3}
-            />
-          </Item>
-        </NavBarNav>
-        <NavBarNav className="font">
-          <Item key="0" onMouseEnter={mouseEnter4} onMouseLeave={mouseLeave4}>
-            <MSLink to="/">
-              <div>{data[3].HeaderTab}</div>
-            </MSLink>
-            <HeaderLink
-              HeaderLinkTab={data[3].HeaderLinkTab}
-              HeaderLinkUrl={data[3].HeaderLinkUrl}
-              hoverVar={hoverVar4}
-            />
-          </Item>
-        </NavBarNav>
-      </NavBarBottom>
+      <NavBarWrap>
+        <NavBarBottom>
+          <NavBarNav>
+            <Item key="0" onMouseEnter={mouseEnter1} onMouseLeave={mouseLeave1}>
+              <MSLink to="/">
+                <div>{data[0].HeaderTab}</div>
+              </MSLink>
+              <HeaderLink
+                HeaderLinkTab={data[0].HeaderLinkTab}
+                HeaderLinkUrl={data[0].HeaderLinkUrl}
+                hoverVar={hoverVar1}
+              />
+            </Item>
+          </NavBarNav>
+          <NavBarNav>
+            <Item key="0" onMouseEnter={mouseEnter2} onMouseLeave={mouseLeave2}>
+              <MSLink to="/">
+                <div>{data[1].HeaderTab}</div>
+              </MSLink>
+              <HeaderLink
+                HeaderLinkTab={data[1].HeaderLinkTab}
+                HeaderLinkUrl={data[1].HeaderLinkUrl}
+                hoverVar={hoverVar2}
+              />
+            </Item>
+          </NavBarNav>
+          <NavBarNav>
+            <Item key="0" onMouseEnter={mouseEnter3} onMouseLeave={mouseLeave3}>
+              <MSLink to="/">
+                <div>{data[2].HeaderTab}</div>
+              </MSLink>
+              <HeaderLink
+                HeaderLinkTab={data[2].HeaderLinkTab}
+                HeaderLinkUrl={data[2].HeaderLinkUrl}
+                hoverVar={hoverVar3}
+              />
+            </Item>
+          </NavBarNav>
+          <NavBarNav>
+            <Item key="0" onMouseEnter={mouseEnter4} onMouseLeave={mouseLeave4}>
+              <MSLink to="/">
+                <div>{data[3].HeaderTab}</div>
+              </MSLink>
+              <HeaderLink
+                HeaderLinkTab={data[3].HeaderLinkTab}
+                HeaderLinkUrl={data[3].HeaderLinkUrl}
+                hoverVar={hoverVar4}
+              />
+            </Item>
+          </NavBarNav>
+        </NavBarBottom>
+      </NavBarWrap>
     </NavBar>
   );
 };

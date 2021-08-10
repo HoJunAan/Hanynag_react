@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import lecture from "img/lecture_picture.PNG";
 import { Link } from "react-router-dom";
+import BarComponent from "Components/Bar";
 
 const Container = styled(Link)`
   height: 100%;
@@ -26,7 +26,7 @@ const BottomSection = styled.div`
   width: 100%;
   height: 60%;
   padding: 20px 10px 60px 10px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   letter-spacing: -1.5px;
 `;
@@ -45,11 +45,9 @@ const TypeOfEdu = styled.span`
   font-weight: 500;
 `;
 
-const Bar = styled.div`
+const Bar = styled(BarComponent)`
   width: 20px;
   height: 3px;
-  background-color: black;
-  opacity: 0.2;
 `;
 
 const Paragraph = styled.div``;
@@ -65,9 +63,18 @@ const List = styled.ul`
   }
 `;
 
-const Item = ({ easyInfo, title, type, target, term, videoOffer, price }) => (
+const Item = ({
+  src,
+  easyInfo,
+  title,
+  type,
+  target,
+  term,
+  videoOffer,
+  price,
+}) => (
   <Container to="/online">
-    <PosterImg src={lecture} alt="lecture_picture" />
+    <PosterImg src={require(`../../../${src}`).default} alt="lecture_picture" />
     <BottomSection>
       <EasyExplain>{easyInfo}</EasyExplain>
       <Title>

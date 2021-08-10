@@ -3,9 +3,10 @@ import styled from "styled-components";
 
 const Footer = styled.footer`
   background-color: #444444;
-  height: 300px;
+  height: 260px;
   width: 100%;
   padding: 5vh 11vw;
+  padding-right: 20vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -20,6 +21,7 @@ const Title = styled.section`
   color: white;
   font-size: 25px;
   padding-bottom: 25px;
+  font-weight: 800;
 `;
 
 const Paragraph = styled.p`

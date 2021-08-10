@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
       padding-top:150px;
       font-weight:550;
       position:relative;
+      font-family: 'Gothic A1', sans-serif;
     }
 `;
 

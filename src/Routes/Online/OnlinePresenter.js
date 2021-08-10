@@ -2,24 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import SubTop2 from "Components/SubTop2";
 import EduList from "Components/SearchEdu/EduList";
+
 const SearchSection = styled.section`
   padding: 40px 13vw;
 `;
 
 const Form = styled.form`
-  width: 300px;
   height: 30px;
+  margin-left: auto;
   margin-bottom: 40px;
   display: flex;
-  margin-left: auto;
+  justify-content: flex-end;
 `;
 
 const Input = styled.input`
   all: unset;
   padding-left: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100%;
+  margin: 0;
+  width: 200px;
   opacity: 0.6;
   font-size: 15px;
 
@@ -41,7 +42,7 @@ const Button = styled.button`
   height: 100%;
   text-align: center;
   margin-left: 10px;
-  background-color: #388281;
+  background-color: var(--main-color);
   color: white;
 `;
 
@@ -58,11 +59,14 @@ const TypeButton = styled.button`
   background-color: white;
   width: 23%;
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   font-weight: 500;
-  &:focus {
+  :focus {
     color: white;
     background-color: #388281;
+  }
+  :hover {
+    border: 1px solid var(--main-color);
   }
 `;
 
@@ -87,7 +91,7 @@ const OnlinePresenter = ({
           placeholder="검색"
           value={searchTerm || ""}
           onChange={updateTerm}
-        ></Input>
+        />
         <Button onClick={handleSubmit}>검색</Button>
       </Form>
       <ButtonSection>
@@ -97,36 +101,22 @@ const OnlinePresenter = ({
         <TypeButton onClick={SpecialCheck}>특강</TypeButton>
       </ButtonSection>
       <EduGridSection>
-        {submitTerm === ""
-          ? eduData
-              .filter((item) => item.type.includes(type))
-              .map((item, index) => (
-                <EduList
-                  key={index}
-                  imgUrl={item.imgUrl}
-                  type={item.type}
-                  title={item.title}
-                  target={item.target}
-                  result={item.result}
-                  cost={item.cost}
-                />
-              ))
-          : eduData
-              .filter(
-                (item) =>
-                  item.title.includes(searchTerm) && item.type.includes(type)
-              )
-              .map((item, index) => (
-                <EduList
-                  key={index}
-                  imgUrl={item.imgUrl}
-                  type={item.type}
-                  title={item.title}
-                  target={item.target}
-                  result={item.result}
-                  cost={item.cost}
-                />
-              ))}
+        {eduData
+          .filter(
+            (item) =>
+              item.title.includes(submitTerm) && item.type.includes(type)
+          )
+          .map((item, index) => (
+            <EduList
+              key={index}
+              imgUrl={item.imgUrl}
+              type={item.type}
+              title={item.title}
+              target={item.target}
+              result={item.result}
+              cost={item.cost}
+            />
+          ))}
       </EduGridSection>
     </SearchSection>
   </>
