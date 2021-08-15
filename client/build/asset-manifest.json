@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1c325a74.chunk.css",
+    "main.js": "/static/js/main.047635d6.chunk.js",
+    "main.js.map": "/static/js/main.047635d6.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2f6e109a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2f6e109a.js.map",
+    "static/js/2.613d2698.chunk.js": "/static/js/2.613d2698.chunk.js",
+    "static/js/2.613d2698.chunk.js.map": "/static/js/2.613d2698.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.1c325a74.chunk.css.map": "/static/css/main.1c325a74.chunk.css.map",
+    "static/js/2.613d2698.chunk.js.LICENSE.txt": "/static/js/2.613d2698.chunk.js.LICENSE.txt",
+    "static/media/1.jpg": "/static/media/1.dbce266d.jpg",
+    "static/media/10.JPG": "/static/media/10.0a4b0f09.JPG",
+    "static/media/11.jpeg": "/static/media/11.33e83a78.jpeg",
+    "static/media/12.JPG": "/static/media/12.524e6547.JPG",
+    "static/media/13.JPG": "/static/media/13.38f9d22d.JPG",
+    "static/media/2.jpg": "/static/media/2.2d6be2bb.jpg",
+    "static/media/3.jpg": "/static/media/3.e9c5057f.jpg",
+    "static/media/4.jpg": "/static/media/4.e29d4323.jpg",
+    "static/media/5.JPG": "/static/media/5.a026f09b.JPG",
+    "static/media/6.jpg": "/static/media/6.c6a8667c.jpg",
+    "static/media/7.jpg": "/static/media/7.94ba3f1b.jpg",
+    "static/media/8.jpg": "/static/media/8.713ea245.jpg",
+    "static/media/9.JPG": "/static/media/9.0732b7f1.JPG",
+    "static/media/edu_img.PNG": "/static/media/edu_img.7e0a6973.PNG",
+    "static/media/lecture_picture.PNG": "/static/media/lecture_picture.04bba920.PNG",
+    "static/media/logo.PNG": "/static/media/logo.60d7830c.PNG",
+    "static/media/modeling.PNG": "/static/media/modeling.e4e9b588.PNG"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2f6e109a.js",
+    "static/js/2.613d2698.chunk.js",
+    "static/css/main.1c325a74.chunk.css",
+    "static/js/main.047635d6.chunk.js"
+  ]
+}
