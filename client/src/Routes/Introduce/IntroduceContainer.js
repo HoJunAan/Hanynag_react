@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import IntroducePresenter from "./IntroducePresenter";
+import axios from "axios";
 
 const Introduce = () => {
   const [data] = useState([
@@ -64,7 +65,14 @@ const Introduce = () => {
       price: "교육비용:1인10,000원~35,000원",
     },
   ]);
-
+  const [result, resultUpdate] = useState();
+  useEffect(() => {
+    const getData = async () => {
+      const fromSerevr = await axios.get("/");
+      console.dir(fromSerevr);
+    };
+    getData();
+  }, []);
   return <IntroducePresenter data={data} />;
 };
 

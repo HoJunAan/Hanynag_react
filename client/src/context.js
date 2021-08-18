@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 
 const context = React.createContext();
 
 const ContextProvider = ({ children }) => {
-  const [clickType, clickTypeUpdate] = useState({});
+  const [clickType] = useState({});
   return <context.Provider value={{ clickType }}>{children}</context.Provider>;
 };
 

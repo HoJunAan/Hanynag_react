@@ -225,7 +225,7 @@ const HeaderComponent = () => {
           </NavBarNav>
           <NavBarNav>
             <Item key="0" onMouseEnter={mouseEnter4} onMouseLeave={mouseLeave4}>
-              <MSLink to="/">
+              <MSLink to="/edu_request">
                 <div>{data[3].HeaderTab}</div>
               </MSLink>
               <HeaderLink

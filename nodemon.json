@@ -4,5 +4,6 @@
     "crash": "kill-port 4000"
   },
   "delay": "1500",
+  "ignore": ["client"],
   "exec": "babel-node ./server.js"
 }
