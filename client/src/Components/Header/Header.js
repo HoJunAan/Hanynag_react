@@ -180,8 +180,8 @@ const HeaderComponent = () => {
             <Title>한양미래연구소</Title>
           </LogoAndTitle>
           <LoginAndJoin>
-            <Login to="/">로그인</Login>
-            <Join to="/">회원가입</Join>
+            <Login to="/login">로그인</Login>
+            <Join to="/join">회원가입</Join>
           </LoginAndJoin>
         </NavBarHeader>
       ) : null}
