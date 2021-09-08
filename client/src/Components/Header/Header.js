@@ -124,7 +124,7 @@ const HeaderComponent = () => {
     {
       HeaderTab: "교육 후기",
       HeaderLinkTab: ["교육 후기", "캠프 만족도", "언론 보도"],
-      HeaderLinkUrl: ["/online", "/online", "/online"],
+      HeaderLinkUrl: ["/review", "/review", "/review"],
     },
     {
       HeaderTab: "기업 소개",
@@ -201,7 +201,7 @@ const HeaderComponent = () => {
           </NavBarNav>
           <NavBarNav>
             <Item key="0" onMouseEnter={mouseEnter2} onMouseLeave={mouseLeave2}>
-              <MSLink to="/">
+              <MSLink to="/review">
                 <div>{data[1].HeaderTab}</div>
               </MSLink>
               <HeaderLink

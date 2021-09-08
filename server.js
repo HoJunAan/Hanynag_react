@@ -1,8 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import "./db";
-import bcrypt from "bcrypt";
-import User from "./models/User";
+import ReviewForm from "./models/ReviewForm";
 
 const app = express();
 const PORT = 4000;
@@ -16,17 +15,20 @@ const handleListening = () => {
   console.log(`Server listening on port http://localhost:${PORT} 🚀`);
 };
 
-app.post("/login", async (req, res) => {
-  console.log(req.body);
-  return res.redirect("/login");
-});
-app.post("/join", async (req, res) => {
-  console.log(req.body);
+app.post("/review/form", async (req, res) => {
   const {
-    body: { name, password1, password2, username, email, phome },
+    body: { title, main },
   } = req;
-  console.log(body);
-  return res.redirect("/join");
+  console.log(main);
+  try {
+    await ReviewForm.create({
+      title,
+      main,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  return res.redirect("/review/form");
 });
 
 app.listen(PORT, handleListening);
