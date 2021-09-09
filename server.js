@@ -15,20 +15,28 @@ const handleListening = () => {
   console.log(`Server listening on port http://localhost:${PORT} 🚀`);
 };
 
+app.get("/review", async (req, res) => {
+  const data = ReviewForm.find();
+  console.log(data);
+  return res.send();
+});
+
 app.post("/review/form", async (req, res) => {
   const {
-    body: { title, main },
+    body: { title, main, category, secret },
   } = req;
-  console.log(main);
   try {
     await ReviewForm.create({
       title,
       main,
+      category,
+      secret,
     });
   } catch (error) {
-    console.log(error);
+    console.log("db save fail");
+    return res.status(400).send();
   }
-  return res.redirect("/review/form");
+  return res.status(200).send();
 });
 
 app.listen(PORT, handleListening);

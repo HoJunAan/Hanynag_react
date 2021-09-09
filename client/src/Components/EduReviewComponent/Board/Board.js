@@ -51,7 +51,7 @@ const SubTitle = ({ boardData }) => {
         <div>작성자</div>
       </BoardTop>
       {boardData.map((item, index) => (
-        <Content>
+        <Content key={index}>
           <div>{index + 1}</div>
           <Title>{item}</Title>
           <div>경기도 모 고등학생</div>

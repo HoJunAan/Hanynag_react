@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
 
 const reviewFormSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  main: { type: String, required: true },
+  title: { type: String },
+  main: { type: String },
+  category: { type: String },
+  secret: { type: Boolean },
 });
 
-const reviewForm = mongoose.model("form", reviewFormSchema);
+const reviewForm = mongoose.model("reviewData", reviewFormSchema);
 
 export default reviewForm;

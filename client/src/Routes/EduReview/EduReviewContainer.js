@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EduReivewPresenter from "./EduReviewPresenter";
+import axios from "axios";
 
 const EduReviewContainer = () => {
   const [subTopData] = useState({
@@ -26,7 +27,11 @@ const EduReviewContainer = () => {
         "책으로만 듣고 멀게만 느껴졌던 창업이 직접 몸으로 경험하고 깨우친 CEO님의 강연을 듣고 나니 다양한 진로를 선택할 수 있다는걸 알면서 동시에 그 다양한 직업중 하나인 창업에 대한 개념이 쑥쑥 들어왔어요. 기업의 대표나 회장은 다 할아버지인줄 알았는데 실제로 사업을 하고 있는 대표님이 우리와 별로 나이 차이가 안나는 20,30대라는걸 보고 들으니 왠지 '나도 해볼 수 있겠다'라는 생각이 든 것 같아요. 창업에 대한 관심이 더 많아졌어요. ",
     },
   ]);
-  const [boardData] = useState([
+
+  useEffect(async () => {
+    const data = await axios.get("/review");
+  }, []);
+  const [boardData, boardDataUpdate] = useState([
     "다음엔 더 다양하게 들어보고 싶어요!",
     "진로 선택에 실습이 도움돼요.",
     "4차산업 혁명과 가까워진 기분.",

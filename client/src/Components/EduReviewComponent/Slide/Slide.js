@@ -113,14 +113,14 @@ const SubTitle = ({ SlideData }) => {
   return (
     <Container>
       <LArrow onClick={slidingLeft}>
-        <i class="fas fa-chevron-left" />
+        <i className="fas fa-chevron-left" />
       </LArrow>
       <RArrow onClick={slidingRight}>
-        <i class="fas fa-chevron-right" />
+        <i className="fas fa-chevron-right" />
       </RArrow>
       <SlideList imageCurrentNo={imageCurrentNo}>
-        {SlideData.map((item) => (
-          <SlideContent>
+        {SlideData.map((item, index) => (
+          <SlideContent key={index}>
             <Profile>
               <Img src={human} />
               <Info>
@@ -135,8 +135,8 @@ const SubTitle = ({ SlideData }) => {
               </Info>
             </Profile>
             <Content>
-              {item.content.split(/[.?!]/).map((line) => (
-                <div>{line}</div>
+              {item.content.split(/[.?!]/).map((line, index) => (
+                <div key={index + 10}>{line}</div>
               ))}
             </Content>
           </SlideContent>
