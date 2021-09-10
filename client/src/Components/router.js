@@ -9,6 +9,7 @@ import Login from "Routes/Login";
 import Join from "Routes/Join";
 import Review from "Routes/EduReview";
 import Form from "Routes/EduReviewForm";
+import ReviewDetail from "Routes/EduReviewDetail";
 
 const Router = () => (
   <BrowserRouter>
@@ -22,6 +23,7 @@ const Router = () => (
       <Route path="/join" exact component={Join} />
       <Route path="/review" exact component={Review} />
       <Route path="/review/form" exact component={Form} />
+      <Route path="/review/:id" exact component={ReviewDetail} />
       <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>

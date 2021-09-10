@@ -16,7 +16,7 @@ const BoardTop = styled.div`
   border-bottom: 2px dotted rgba(0, 0, 0, 0.2);
 `;
 
-const Content = styled.div`
+const Content = styled(Link)`
   border-bottom: 2px dotted rgba(0, 0, 0, 0.2);
   width: 100%;
   padding: 18px 80px;
@@ -50,13 +50,15 @@ const SubTitle = ({ boardData }) => {
         <div>제목</div>
         <div>작성자</div>
       </BoardTop>
-      {boardData.map((item, index) => (
-        <Content key={index}>
-          <div>{index + 1}</div>
-          <Title>{item}</Title>
-          <div>경기도 모 고등학생</div>
-        </Content>
-      ))}
+      {boardData
+        ? boardData.map((item, index) => (
+            <Content key={index} to={`review/${item._id}`}>
+              <div>{index + 1}</div>
+              <Title>{item.title}</Title>
+              <div>경기도 모 고등학생</div>
+            </Content>
+          ))
+        : null}
       <Button to="review/form">게시글 작성</Button>
     </Board>
   );

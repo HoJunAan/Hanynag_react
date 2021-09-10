@@ -16,9 +16,8 @@ const handleListening = () => {
 };
 
 app.get("/review", async (req, res) => {
-  const data = ReviewForm.find();
-  console.log(data);
-  return res.send();
+  const data = await ReviewForm.find();
+  return res.json(data);
 });
 
 app.post("/review/form", async (req, res) => {
