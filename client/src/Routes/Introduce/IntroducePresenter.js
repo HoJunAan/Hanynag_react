@@ -7,10 +7,10 @@ const IntroduceComponent = styled.div`
   height: 100%;
 `;
 
-const Introduce = ({ data }) => {
+const Introduce = ({ data, subTopData }) => {
   return (
     <IntroduceComponent>
-      <SubTop />
+      <SubTop subTopData={subTopData} />
       <Poster data={data} />
     </IntroduceComponent>
   );

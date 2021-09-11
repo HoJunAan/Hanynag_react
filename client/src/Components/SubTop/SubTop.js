@@ -41,14 +41,14 @@ const Paragraph = styled.div`
   gap: 5px;
 `;
 
-const SubTopComponent = () => (
+const SubTopComponent = ({ subTopData }) => (
   <SubTop>
-    <SmallTitle>Education Introduction</SmallTitle>
-    <Title>교육소개</Title>
+    <SmallTitle>{subTopData.smallTitle}</SmallTitle>
+    <Title>{subTopData.title}</Title>
     <Bar></Bar>
     <Paragraph>
-      <div>4차산업혁명시대를 이끌어 나갈 인재를 양성하는</div>
-      <div>한양미래연구소의 교육 프로그램입니다.</div>
+      <div>{subTopData.subTitle1}</div>
+      <div>{subTopData.subTitle2}</div>
     </Paragraph>
   </SubTop>
 );

@@ -65,15 +65,14 @@ const Introduce = () => {
       price: "교육비용:1인10,000원~35,000원",
     },
   ]);
-  const [result, resultUpdate] = useState();
-  useEffect(() => {
-    const getData = async () => {
-      const fromSerevr = await axios.get("/");
-      console.dir(fromSerevr);
-    };
-    getData();
-  }, []);
-  return <IntroducePresenter data={data} />;
+  const [subTopData] = useState({
+    title: "교육 소개",
+    smallTitle: "Education Introduction",
+    subTitle1: "4차산업혁명시대를 이끌어 나갈 인재를 양성하는",
+    subTitle2: "한양미래연구소의 교육 프로그램입니다.",
+  });
+
+  return <IntroducePresenter data={data} subTopData={subTopData} />;
 };
 
 export default Introduce;

@@ -8,8 +8,6 @@ import EduRequest from "Routes/EduRequest";
 import Login from "Routes/Login";
 import Join from "Routes/Join";
 import Review from "Routes/EduReview";
-import Form from "Routes/EduReviewForm";
-import ReviewDetail from "Routes/EduReviewDetail";
 
 const Router = () => (
   <BrowserRouter>
@@ -21,9 +19,7 @@ const Router = () => (
       <Route path="/edu_request" exact component={EduRequest} />
       <Route path="/login" exact component={Login} />
       <Route path="/join" exact component={Join} />
-      <Route path="/review" exact component={Review} />
-      <Route path="/review/form" exact component={Form} />
-      <Route path="/review/:id" exact component={ReviewDetail} />
+      <Route path="/review" component={Review} />
       <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>

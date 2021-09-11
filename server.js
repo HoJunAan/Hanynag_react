@@ -19,6 +19,17 @@ app.get("/review", async (req, res) => {
   const data = await ReviewForm.find();
   return res.json(data);
 });
+app.get(`/review/:id`, async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  const reviewDetail = await ReviewForm.findById(id);
+  if (!reviewDetail) {
+    return res.send(false);
+  } else {
+    return res.json(reviewDetail);
+  }
+});
 
 app.post("/review/form", async (req, res) => {
   const {

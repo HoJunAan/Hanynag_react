@@ -1,3 +1,3 @@
-import Form from "./Form";
+import ReviewContainer from "./Form";
 
-export default Form;
+export default ReviewContainer;

@@ -32,6 +32,7 @@ const EduReviewContainer = () => {
   useEffect(async () => {
     const { data } = await axios.get("/review");
     boardDataUpdate(data);
+    console.log(data);
   }, []);
 
   return (
