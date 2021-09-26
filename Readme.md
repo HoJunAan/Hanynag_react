@@ -5,7 +5,10 @@
 
 수정필요사항
 
-1. 게시판 data들을 가져오는 useEffect훅 의존성 배열을 아예 비워두어서 rendering 될 때마다 서버에 data요청을 하는데 이 부분이 비효율적이라 게시판 폼 제출시 변수 값을 변경시켜 이 변수로 useEffect 훅 의존성 배열에 넣으려는 계획. 그런데 redux에 대해 아직 이해가 부족해서 이 부분 공부한 이후에 구현할 예정.
+1. 게시판 data들을 가져오는 useEffect훅 의존성 배열을 redux를 이용한 변수로 만들기
+   (redux, toolkit,createSlice 3가지 버전으로 해보기)
 
 2. 페이지 이동시 스크롤 위치를 최상단으로 위치시키기
    https://kimchanjung.github.io/programming/2020/06/25/react-scroll-top/
+
+3. server 쪽 파일 정리

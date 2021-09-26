@@ -1,8 +1,10 @@
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
-import axios from "axios";
+import { reviewApi } from "api";
 import EditorComponent from "../EditorComponent";
+import { actionCreators } from "store";
+import { connect } from "react-redux";
 
 styled.form`
   display: flex;
@@ -56,7 +58,7 @@ const InputContainer = styled.div`
   }
 `;
 
-const FormComponent = ({ history }) => {
+const FormComponent = ({ history, newReviewAction }) => {
   const [title, updateTitle] = useState("");
   const [main, updateMain] = useState("");
   const [category, updateCategory] = useState("청소년 캠프");
@@ -90,7 +92,8 @@ const FormComponent = ({ history }) => {
       secret,
     };
     try {
-      await axios.post("http://localhost:3000/review/form", body);
+      await reviewApi.reviewPost(body);
+      newReviewAction();
     } catch (e) {
       console.log(e);
     } finally {
@@ -138,4 +141,10 @@ const FormComponent = ({ history }) => {
   );
 };
 
-export default withRouter(FormComponent);
+function mapDispatchToProps(dispatch) {
+  return {
+    newReviewAction: () => dispatch(actionCreators.newReviewAction()),
+  };
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(FormComponent));

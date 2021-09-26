@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EduReivewPresenter from "./ReviewDetailPresenter";
-import axios from "axios";
+import { reviewApi } from "api";
 import { withRouter } from "react-router";
 
 const EduReviewContainer = ({ match }) => {
@@ -9,7 +9,7 @@ const EduReviewContainer = ({ match }) => {
   } = match;
   const [reviewData, reviewUpdate] = useState();
   useEffect(async () => {
-    const { data } = await axios.get(`/review/${id}`);
+    const { data } = await reviewApi.reviewDetail(id);
     reviewUpdate(data);
   }, []);
   return <EduReivewPresenter reviewData={reviewData} />;

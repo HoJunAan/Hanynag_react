@@ -26,7 +26,6 @@ const ReviewContainer = ({ reviewData }) => {
           </Row>
           <Row>
             <Main dangerouslySetInnerHTML={{ __html: reviewData.main }}></Main>
-            <Main>{reviewData.main}</Main>
           </Row>
         </Container>
       ) : null}
