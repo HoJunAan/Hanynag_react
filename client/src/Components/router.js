@@ -13,19 +13,18 @@ import Review from "Routes/EduReview";
 
 const Router = () => (
     <BrowserRouter>
-        <ScrollToTop>
-            <Header />
-            <Switch>
-                <Route path="/" exact component={Introduce} />
-                <Route path="/online" exact component={Online} />
-                <Route path="/online/:id" exact component={EduDetail} />
-                <Route path="/edu_request" exact component={EduRequest} />
-                <Route path="/login" exact component={Login} />
-                <Route path="/join" exact component={Join} />
-                <Route path="/review" component={Review} />
-                <Redirect from="*" to="/" />
-            </Switch>
-        </ScrollToTop>
+        <ScrollToTop />
+        <Header />
+        <Switch>
+            <Route path="/" exact component={Introduce} />
+            <Route path="/online" exact component={Online} />
+            <Route path="/online/:id" exact component={EduDetail} />
+            <Route path="/edu_request" exact component={EduRequest} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/join" exact component={Join} />
+            <Route path="/review" component={Review} />
+            <Redirect from="*" to="/" />
+        </Switch>
     </BrowserRouter>
 );
 
