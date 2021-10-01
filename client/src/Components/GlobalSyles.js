@@ -13,9 +13,9 @@ const GlobalStyles = createGlobalStyle`
     }
     body{
       padding-top:150px;
+      font-family: 'Noto Sans KR', sans-serif;
       font-weight:550;
       position:relative;
-      font-family: 'Gothic A1', sans-serif;
     }
 `;
 

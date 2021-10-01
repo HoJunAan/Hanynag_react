@@ -5,10 +5,6 @@
 
 수정필요사항
 
-1. 게시판 data들을 가져오는 useEffect훅 의존성 배열을 redux를 이용한 변수로 만들기
-   (redux, toolkit,createSlice 3가지 버전으로 해보기)
+1. server 쪽 파일 정리
 
-2. 페이지 이동시 스크롤 위치를 최상단으로 위치시키기
-   https://kimchanjung.github.io/programming/2020/06/25/react-scroll-top/
-
-3. server 쪽 파일 정리
+2.reset css때문에 게시판 작성에 바꾼 글자 크기, 오른쪽 배치 같은 설정요소들이 안 보임.
