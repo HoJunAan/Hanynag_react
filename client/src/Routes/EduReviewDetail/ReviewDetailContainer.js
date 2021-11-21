@@ -8,10 +8,13 @@ const EduReviewContainer = ({ match }) => {
         params: { id },
     } = match;
     const [reviewData, reviewUpdate] = useState();
-    useEffect(async () => {
-        const { data } = await reviewApi.reviewDetail(id);
-        reviewUpdate(data);
-    }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+            const { data } = await reviewApi.reviewDetail(id);
+            reviewUpdate(data);
+        };
+        fetchData();
+    }, [id]);
     return <EduReivewPresenter reviewData={reviewData} />;
 };
 

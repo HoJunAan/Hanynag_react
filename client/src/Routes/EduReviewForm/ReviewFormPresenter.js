@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import React from "react";
 import styled from "styled-components";
-import { reviewApi } from "api";
 import EditorComponent from "Components/EduReviewFormComponent/EditorComponent";
-import { actionCreators } from "store";
-import { connect } from "react-redux";
 
 const Box = styled.div`
     width: 70vw;
@@ -39,10 +35,21 @@ const Label = styled.label`
     align-items: center;
     justify-content: end;
 `;
-
-const Button = styled.input`
-    width: 100px;
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+`;
+const Button = styled.button`
+    width: 80px;
     height: 50px;
+    font-size: 18px;
+    border-radius: 7px;
+    background: white;
+    border: 0.5px solid black;
+    :hover {
+        background: rgba(0, 0, 0, 0.1);
+    }
 `;
 
 const CheckBox = styled.input`
@@ -63,51 +70,17 @@ const InputContainer = styled.div`
     }
 `;
 
-const EduReivewPresenter = ({ history, newReviewAction }) => {
-    const [title, updateTitle] = useState("");
-    const [main, updateMain] = useState("");
-    const [category, updateCategory] = useState("청소년 캠프");
-    const [secret, updateSecret] = useState(false);
-    const onChangeTitle = (e) => {
-        const {
-            target: { value },
-        } = e;
-        updateTitle(value);
-    };
-    const onChangeMain = (value) => {
-        console.log(main);
-        updateMain(value);
-    };
-    const onChangeCategory = (e) => {
-        const {
-            target: { value },
-        } = e;
-        updateCategory(value);
-    };
-    const onChangeSecret = (e) => {
-        if (secret === false) updateSecret(true);
-        else updateSecret(false);
-    };
-
-    const submitHandler = async (e) => {
-        e.preventDefault();
-        console.log(main);
-        const body = {
-            title,
-            main,
-            category,
-            secret,
-        };
-        console.log(body);
-        try {
-            await reviewApi.reviewPost(body);
-            newReviewAction();
-        } catch (e) {
-            console.log(e);
-        } finally {
-            history.push("/review");
-        }
-    };
+const EduReivewPresenter = ({
+    onChangeTitle,
+    onChangeMain,
+    onChangeCategory,
+    onChangeSecret,
+    submitHandler,
+    title,
+    main,
+    category,
+    secret,
+}) => {
     return (
         <Box>
             <form onSubmit={submitHandler}>
@@ -125,9 +98,15 @@ const EduReivewPresenter = ({ history, newReviewAction }) => {
                 </InputContainer>
                 <InputContainer>
                     <Label htmlFor="category">카테고리</Label>
-                    <Select id="category" value={category} onChange={onChangeCategory}>
+                    <Select
+                        id="category"
+                        value={category}
+                        onChange={onChangeCategory}
+                    >
                         <option value="청소년 캠프">청소년 캠프</option>
-                        <option value="찾아가는 체험교실">찾아가는 체험교실</option>
+                        <option value="찾아가는 체험교실">
+                            찾아가는 체험교실
+                        </option>
                         <option value="청소년 동아리">청소년 동아리</option>
                         <option value="전문인 특강 / 창의 체험 캠프">
                             전문인 특강 / 창의 체험 캠프
@@ -141,6 +120,7 @@ const EduReivewPresenter = ({ history, newReviewAction }) => {
                         onClick={onChangeSecret}
                     />
                 </InputContainer>
+
                 <InputContainer>
                     <Label>내용</Label>
                     <EditorComponent
@@ -149,16 +129,12 @@ const EduReivewPresenter = ({ history, newReviewAction }) => {
                         onEditorChange={onChangeMain}
                     />
                 </InputContainer>
-                <Button type="submit" value="제출" />
+                <ButtonContainer>
+                    <Button type="submit">확인</Button>
+                </ButtonContainer>
             </form>
         </Box>
     );
 };
 
-function mapDispatchToProps(dispatch) {
-    return {
-        newReviewAction: () => dispatch(actionCreators.newReviewAction()),
-    };
-}
-
-export default withRouter(connect(null, mapDispatchToProps)(EduReivewPresenter));
+export default EduReivewPresenter;

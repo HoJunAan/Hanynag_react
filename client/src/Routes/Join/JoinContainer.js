@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import JoinPresenter from "./JoinPresenter";
 
 const JoinContainer = () => {
-  return <JoinPresenter />;
+    return <JoinPresenter />;
 };
 
 export default JoinContainer;
