@@ -30,6 +30,8 @@ const EduReviewContainer = ({ updateCheck }) => {
     ]);
 
     const [boardData, boardDataUpdate] = useState();
+    const [buttonSelect, setButtonSelect] = useState([1, 0, 0, 0, 0]);
+
     useEffect(() => {
         const fetchData = async () => {
             const { data } = await reviewApi.reviewBoard();
@@ -38,11 +40,20 @@ const EduReviewContainer = ({ updateCheck }) => {
         fetchData();
     }, [updateCheck]);
 
+    const typeHandler = (index) => {
+        let arr = [0, 0, 0, 0, 0];
+        arr[index] = 1;
+        setButtonSelect(arr);
+    };
+
     return (
         <EduReivewPresenter
             subTopData={subTopData}
             SlideData={SlideData}
             boardData={boardData}
+            setButtonSelect={setButtonSelect}
+            buttonSelect={buttonSelect}
+            typeHandler={typeHandler}
         />
     );
 };

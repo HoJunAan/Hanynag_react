@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 import SubTop from "Components/SubTop";
@@ -13,7 +13,13 @@ const Box = styled.div`
     margin: 0 auto;
 `;
 
-const EduReivewPresenter = ({ subTopData, SlideData, boardData }) => {
+const EduReivewPresenter = ({
+    subTopData,
+    SlideData,
+    boardData,
+    buttonSelect,
+    typeHandler,
+}) => {
     return (
         <>
             <SubTop subTopData={subTopData} />
@@ -23,7 +29,13 @@ const EduReivewPresenter = ({ subTopData, SlideData, boardData }) => {
                 <Route
                     path="/review"
                     exact
-                    render={() => <Board boardData={boardData} />}
+                    render={() => (
+                        <Board
+                            boardData={boardData}
+                            buttonSelect={buttonSelect}
+                            typeHandler={typeHandler}
+                        />
+                    )}
                 />
                 <Switch>
                     <Route path="/review/form" component={Form} />
