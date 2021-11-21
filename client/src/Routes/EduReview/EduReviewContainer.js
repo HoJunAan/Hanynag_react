@@ -30,9 +30,12 @@ const EduReviewContainer = ({ updateCheck }) => {
     ]);
 
     const [boardData, boardDataUpdate] = useState();
-    useEffect(async () => {
-        const { data } = await reviewApi.reviewBoard();
-        boardDataUpdate(data);
+    useEffect(() => {
+        const fetchData = async () => {
+            const { data } = await reviewApi.reviewBoard();
+            boardDataUpdate(data);
+        };
+        fetchData();
     }, [updateCheck]);
 
     return (
